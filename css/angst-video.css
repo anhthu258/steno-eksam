@@ -12,12 +12,17 @@ body{
     font-size: 16px;
 }
 
-#character-container{
-    animation: fall 3s ease-in forwards;
+#character-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    z-index: 5; /* Higher than the video */
+    animation: fall 2.5s ease-in forwards;
 }
 
 #character-container img{
@@ -40,6 +45,16 @@ body{
         transform: translateY(70vh);
         opacity: 1;
     }
+}
+
+@-webkit-keyframes video-container {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes video-container { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
 }
 
 .video-container {
@@ -67,7 +82,7 @@ body{
     transform: translateX(-50%);
     display: flex;
     gap: 20px;
-    z-index: 2;
+    z-index: 100;
     background: rgba(0,0,0,0.4);
     padding: 6px 12px;
     border-radius: 30px;
@@ -97,4 +112,45 @@ body{
     width: 3rem;
     height: 3rem;
     object-fit: contain;
+}
+
+.video-controls.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.video-controls {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.popup {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+.popup-content {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+}
+.popup-content button {
+    margin: 1rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #9e2921;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.popup-content button:hover {
+    background: #c0392b;
 }
