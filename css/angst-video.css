@@ -5,11 +5,11 @@
 }
 
 body{
-    overflow: hidden;
     background-image: url(../img/border.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    font-size: 16px;
 }
 
 #character-container{
@@ -40,4 +40,61 @@ body{
         transform: translateY(70vh);
         opacity: 1;
     }
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#angst-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 12px;
+    border-radius: 30px;
+}
+
+.video-container {
+    position: relative; /* Ensure positioning context for controls */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.video-container button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: transparent; 
+}
+
+.video-container button:hover{
+    cursor: pointer;
+}
+
+.video-controls img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
 }
