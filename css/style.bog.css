@@ -1,0 +1,15 @@
+body{
+    background-image: url(/img/background1.png);
+    background-size: cover;
+    animation: backgroundAnim 600ms linear infinite;
+}
+
+/*@keyframes backgroundAnim {
+    0% {
+        background-position: 0 0px;
+    }
+    100% {
+        background-position: 100px 0px; 
+    }
+} */
+
