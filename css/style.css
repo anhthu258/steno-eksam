@@ -2,4 +2,25 @@ body {
     background-image: url(/img/background2.png);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.bog-stander {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;      /*stopper overflow*/
+    height: 50vw;      
+    max-width: 100vw;  
+    max-height: 100vh;
+
+}
+
+.bog-stander img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
