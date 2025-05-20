@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#character-container{
+    animation: fall 3s ease-in forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#character-container img{
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    max-height: 600px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(80vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(70vh);
+        opacity: 1;
+    }
+}
