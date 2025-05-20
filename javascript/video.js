@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const controls = document.querySelector('.video-controls');
     const endPopup = document.getElementById('end-popup');
     const character = document.getElementById('character-container');
+    const closePopup = document.getElementById('close-popup');
     let hideTimeout;
 
     // Events for video controls
@@ -35,6 +36,22 @@ window.addEventListener('DOMContentLoaded', function() {
     video.addEventListener('ended', function() {
         if (endPopup) endPopup.style.display = 'flex';
     });
+
+    // Lukker popup ved at klikke udenfor popupen
+    if (endPopup) {
+        endPopup.addEventListener('click', function(e) {
+            // Lukker popup ved at klikke udenfor popupen
+            if (e.target === endPopup) {
+                endPopup.style.display = 'none';
+            }
+        });
+    }
+
+    if (closePopup) {
+        closePopup.onclick = function() {
+            endPopup.style.display = 'none';
+        };
+    }
 
     // gemmer/viser kontrollene
     function showControls() {
