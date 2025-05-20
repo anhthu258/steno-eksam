@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body{
+    overflow: hidden;
+    background-image: url(../img/border.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #character-container{
     animation: fall 3s ease-in forwards;
     display: flex;
