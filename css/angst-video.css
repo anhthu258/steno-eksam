@@ -21,7 +21,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5; /* Higher than the video */
     animation: fall 2.5s ease-in forwards;
 }
 

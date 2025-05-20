@@ -1,8 +1,3 @@
-const video = document.getElementById('angst-video');
-    document.getElementById('play-btn').onclick = () => video.play();
-    document.getElementById('pause-btn').onclick = () => video.pause();
-    document.getElementById('backward-btn').onclick = () => video.currentTime = Math.max(0, video.currentTime - 10);
-    document.getElementById('forward-btn').onclick = () => video.currentTime = Math.min(video.duration, video.currentTime + 10);
 var myVar;
 
 function myFunction() {
@@ -14,31 +9,47 @@ function showPage() {
   document.getElementById("myDiv").style.display = "block";
 }
 
-
 window.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('angst-video');
+    const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
+    const backwardBtn = document.getElementById('backward-btn');
+    const forwardBtn = document.getElementById('forward-btn');
     const controls = document.querySelector('.video-controls');
+    const endPopup = document.getElementById('end-popup');
+    const character = document.getElementById('character-container');
     let hideTimeout;
 
+    // Events for video controls
+    playBtn.onclick = () => video.play();
+    pauseBtn.onclick = () => video.pause();
+    backwardBtn.onclick = () => video.currentTime = Math.max(0, video.currentTime - 10);
+    forwardBtn.onclick = () => video.currentTime = Math.min(video.duration, video.currentTime + 10);
+
+    // Fjerne loader når videoen er klar
+    video.addEventListener('canplay', function() {
+        if (character) character.classList.add('fade-out');
+    });
+
+    // Popup når video er færdig
+    video.addEventListener('ended', function() {
+        if (endPopup) endPopup.style.display = 'flex';
+    });
+
+    // gemmer/viser kontrollene
     function showControls() {
         controls.classList.remove('hide');
         clearTimeout(hideTimeout);
         hideTimeout = setTimeout(() => {
             controls.classList.add('hide');
-        }, 2000); // 2 seconds after last interaction
+        }, 2000);
     }
 
     document.addEventListener('mousemove', showControls);
     document.addEventListener('touchstart', showControls);
 
-    // Hide controls initially after 2 seconds
+    // Fjerner kontrollene etter 2 sekunder
     hideTimeout = setTimeout(() => {
         controls.classList.add('hide');
     }, 2000);
-
-    const video = document.getElementById('angst-video');
-    const endPopup = document.getElementById('end-popup');
-    video.addEventListener('ended', function() {
-        if (endPopup) endPopup.style.display = 'flex';
-    });
-    
 });
