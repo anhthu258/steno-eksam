@@ -9,6 +9,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    font-size: 16px;
 }
 
 #character-container{
@@ -57,4 +58,39 @@ body{
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+    background: rgba(0,0,0,0.4);
+    padding: 12px 24px;
+    border-radius: 30px;
+}
+
+.video-container {
+    position: relative; /* Ensure positioning context for controls */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.video-container button{
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.video-container button:hover{
+    background-color: #ddd;
+    cursor: pointer;
 }
