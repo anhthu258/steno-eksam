@@ -1867,4 +1867,13 @@
     for (a in c) if (void 0 !== b.style[a]) return c[a];
   };
   f.findPos = C;
+      document.querySelector(".next-pil").onclick = function() {
+      $(".flipbook").turn("next");
+    };
+    document.querySelector(".hjem").onclick = function() {
+        $(".flipbook").turn("page", 1);
+    };
+    document.querySelector(".prev-pil").onclick = function() {
+      $(".flipbook").turn("previous");
+    };
 })(jQuery);

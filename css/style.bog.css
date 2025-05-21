@@ -89,3 +89,8 @@ body{
 }
 
 
+/*Styling af knapper*/
+.hjem{
+    cursor: pointer;
+}
+
