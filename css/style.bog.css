@@ -14,6 +14,9 @@
 
 body {
   background-image: url('/img/background1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -40,14 +43,20 @@ body {
 }
 
 .flipbook {
-  width: 1100px;
-  height: 700px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: fixed; /* changed from absolute */
+  top: -65%;
+  left: -65%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  width: 90vw;
+  max-width: 1100px;
+  height: 60vw;      /* changed from 20vw for better aspect ratio */
+  max-height: 700px;
+  z-index: 10;       /* higher than .bog-flip */
+  box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.01);
 }
+
+
 
 .flipbook .hard {
   color: #fff;
