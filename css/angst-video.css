@@ -1,10 +1,12 @@
-*{
+/* Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+/* Body styling */
+body {
     background-image: url(../img/border.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,6 +15,7 @@ body{
     overflow: hidden;
 }
 
+/* Loader */
 #loader {
     top: 0;
     left: 0;
@@ -24,80 +27,56 @@ body{
     animation: fall 2.5s ease-in forwards;
     z-index: 1;
 }
-
-#loader img{
+#loader img {
     width: 100%;
     height: auto;
     max-width: 55rem;
     max-height: 55rem;
 }
-
 @keyframes fall {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    80% {
-        transform: translateY(80vh);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(70vh);
-        opacity: 1;
-    }
+    0% { transform: translateY(-100%); opacity: 0; }
+    80% { transform: translateY(80vh); opacity: 1; }
+    100% { transform: translateY(70vh); opacity: 1; }
 }
 
-#myDiv{
+/* Main content hidden by default */
+#myDiv {
     display: none;
     text-align: center;
 }
 
+/* Animation for main content */
 .animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
+    position: relative;
+    animation-name: animatebottom;
+    animation-duration: 1s;
+}
+@keyframes animatebottom {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 0; opacity: 1; }
 }
 
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
-@-webkit-keyframes video-container {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-
-@keyframes video-container { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
+/* Video container */
 .video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
 }
 
+/* Video styling */
 #angst-video {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
 }
 
+/* Video controls */
 .video-controls {
     position: absolute;
     bottom: 40px;
@@ -109,45 +88,27 @@ body{
     background: rgba(0,0,0,0.4);
     padding: 6px 12px;
     border-radius: 30px;
+    opacity: 1;
+    transition: opacity 0.5s;
 }
-
-.video-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
+.video-controls.hide {
+    opacity: 0;
+    pointer-events: none;
 }
-
-.video-container button{
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    background: transparent; 
-}
-
-.video-container button:hover{
-    cursor: pointer;
-}
-
 .video-controls img {
     width: 3rem;
     height: 3rem;
     object-fit: contain;
 }
-
-.video-controls.hide {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s;
+.video-container button {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: transparent;
+    cursor: pointer;
 }
 
-.video-controls {
-    opacity: 1;
-    transition: opacity 0.5s;
-}
-
+/* Popup styling */
 .popup {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -178,7 +139,6 @@ body{
 .popup-content button:hover {
     background: #c0392b;
 }
-
 #close-popup {
     position: absolute;
     top: -20px;
@@ -187,7 +147,6 @@ body{
     border: none;
     cursor: pointer;
 }
-
 #close-popup img {
     width: 2rem;
     height: 2rem;
