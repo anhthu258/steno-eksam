@@ -1,13 +1,3 @@
-var myVar;
-
-function myFunction() {
-  myVar = setTimeout(showPage, 3000);
-}
-
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("myDiv").style.display = "block";
-}
 
 window.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('angst-video');
@@ -21,16 +11,11 @@ window.addEventListener('DOMContentLoaded', function() {
     const closePopup = document.getElementById('close-popup');
     let hideTimeout;
 
-    // Events for video controls
+    // Events for video kontroller
     playBtn.onclick = () => video.play();
     pauseBtn.onclick = () => video.pause();
     backwardBtn.onclick = () => video.currentTime = Math.max(0, video.currentTime - 10);
     forwardBtn.onclick = () => video.currentTime = Math.min(video.duration, video.currentTime + 10);
-
-    // Fjerne loader når videoen er klar
-    video.addEventListener('canplay', function() {
-        if (character) character.classList.add('fade-out');
-    });
 
     // Popup når video er færdig
     video.addEventListener('ended', function() {
