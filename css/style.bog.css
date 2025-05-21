@@ -37,5 +37,15 @@ body{
     max-height: 100vh;
 }
 
+.indhold{
+    background-color: blueviolet; /*kontrol til at kunne se Omslag*/
+    width: 1000px; /*til at passe til bogens størrelse*/
+    height: 600px;
+}
+
+.indhold .omslag{
+    background-color: blueviolet; /*kontrol til at kunne se Omslag*/
+    color: white;/*kontrol til at kunne se test */
+}
 
 
