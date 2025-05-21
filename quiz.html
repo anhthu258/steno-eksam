@@ -7,17 +7,20 @@
 </head>
 <body>
   <div class="quiz-container">
-    <div class="counter">
-      Spørgsmål <br>
-      <span id="questionNumber">1</span> of 4<br>
-      Rigtige svar: <br>
-      <span id="correctCount">0</span>
-    </div>
-    
     <div id="question"></div>
     <div class="options" id="options"></div>
-    <button id="nextBtn" style="display:none;">Next</button>
+<img id="nextBtn" src="/img/hvid-pil.png" alt="Next"  />
     <div id="result"></div>
+    <section class="counter">
+      <div class="svar">
+        Rigtige svar: <br>
+        <span id="correctCount">0</span>
+      </div>
+      <div class="spørgsmål">
+        Spørgsmål <br>
+        <span id="questionNumber">1</span> / 4<br>
+      </div>
+    </section>
   </div>
   <script src="/javascript/quiz.js"></script>
 </body>
