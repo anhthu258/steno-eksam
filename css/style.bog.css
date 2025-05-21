@@ -39,13 +39,16 @@ body{
 
 .indhold{
     background-color: blueviolet; /*kontrol til at kunne se Omslag*/
-    width: 1000px; /*til at passe til bogens størrelse*/
-    height: 600px;
+    width: 1250px; /*til at passe til bogens størrelse*/
+    height: 1500px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: rotate(-3deg);
 }
 
 .indhold .omslag{
-    background-color: blueviolet; /*kontrol til at kunne se Omslag*/
+    background-color: rgb(52, 43, 226); /*kontrol til at kunne se Omslag*/
     color: white;/*kontrol til at kunne se test */
 }
-
 
