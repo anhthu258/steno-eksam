@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Quiz</title>
+  <title>Simple Quiz</title>
   <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <div class="quiz-container">
+  <div class="quiz-container">
     <div class="counter">
       Spørgsmål <br>
       <span id="questionNumber">1</span> of 4<br>
       Rigtige svar: <br>
       <span id="correctCount">0</span>
     </div>
-  <div class="quiz-container">
-    <div id="question" class="question"></div>
-    <div id="options" class="options"></div>
-    <div id="result" class="result"></div>
+    
+    <div id="question"></div>
+    <div class="options" id="options"></div>
+    <button id="nextBtn" style="display:none;">Next</button>
+    <div id="result"></div>
   </div>
-<div id="question-counter"></div>
-<div id="correct-counter"></div>
   <script src="quiz.js"></script>
 </body>
 </html>

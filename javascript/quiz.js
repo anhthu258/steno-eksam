@@ -1,6 +1,7 @@
-const questions = [
+'use strict';
+const quiz = [
   {
-question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse inden de bliver 18?",
+    question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse inden de bliver 18?",
     options: ["20%", "13%", "15%", "17%"],
     answer: 2
   },
@@ -21,48 +22,50 @@ question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse
   }
 ];
 
-
-let currentQuestion = 0;
-let score = 0;
+let current = 0;
+let correct = 0;
 
 function showQuestion() {
-  const questionElement = document.getElementById('question');
-  const optionsElement = document.getElementById('options');
-  const current = questions[currentQuestion];
+  document.getElementById('questionNumber').textContent = current + 1;
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('result').textContent = '';
+  document.getElementById('nextBtn').style.display = 'none';
 
-  questionElement.textContent = current.question;
-  optionsElement.innerHTML = '';
-
-  current.options.forEach((option, index) => {
-    const button = document.createElement('button');
-    button.textContent = option;
-    button.addEventListener('click', () => checkAnswer(index));
-    optionsElement.appendChild(button);
+  const q = quiz[current];
+  document.getElementById('question').innerHTML = q.question; 
+  const optionsDiv = document.getElementById('options');
+  optionsDiv.innerHTML = '';
+  q.options.forEach((option, index) => {
+    const btn = document.createElement('button');
+    btn.textContent = option;
+    btn.onclick = () => selectOption(index);
+    optionsDiv.appendChild(btn);
   });
 }
 
-function checkAnswer(selectedIndex) {
-  const resultElement = document.getElementById('result');
-  if (selectedIndex === questions[currentQuestion].answer) {
-    score++;
-    resultElement.textContent = "Correct!";
+function selectOption(index) {
+  const q = quiz[current];
+  if (index === q.answer) {
+    correct++;
+    document.getElementById('result').textContent = 'Rigtig!';
   } else {
-    resultElement.textContent = "Wrong answer.";
+    document.getElementById('result').textContent = 'Forkert!';
   }
-  currentQuestion++;
-  if (currentQuestion < questions.length) {
-    setTimeout(() => {
-      resultElement.textContent = "";
-      showQuestion();
-    }, 1000);
-  } else {
-    showResult();
-  }
+  document.getElementById('correctCount').textContent = correct;
+  Array.from(document.getElementById('options').children).forEach(btn => btn.disabled = true);
+  document.getElementById('nextBtn').style.display = 'inline';
 }
 
-function showResult() {
-  const quizContainer = document.querySelector('.quiz-container');
-  quizContainer.innerHTML = `<h2>You scored ${score} out of ${questions.length}.</h2>`;
-}
+document.getElementById('nextBtn').onclick = () => {
+  current++;
+  if (current < quiz.length) {
+    showQuestion();
+  } else {
+    document.getElementById('question').textContent = 'Quiz finished!';
+    document.getElementById('options').innerHTML = '';
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('result').textContent = `You got ${correct} out of ${quiz.length} correct.`;
+  }
+};
 
 showQuestion();
