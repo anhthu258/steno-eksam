@@ -40,6 +40,12 @@ function showQuestion() {
     btn.textContent = option;
     btn.innerHTML = option;
     btn.onclick = () => selectOption(index);
+
+      if (current === 3) { 
+    btn.style.fontSize = '2vh';
+  } else {
+    btn.style.fontSize = '2.8vh';
+  }
     optionsDiv.appendChild(btn);
   });
 }
@@ -92,6 +98,12 @@ document.getElementById('nextBtn').onclick = () => {
     restartLink.textContent = 'Tilbage til start';
     restartLink.classList.add('restartLink');
     document.getElementById('result').appendChild(restartLink);
+
+    const finalImg = document.createElement('img');
+    finalImg.src = '/img/sidder-ned.png'; 
+    finalImg.alt = 'Sidder ned';
+    finalImg.className = 'final-img';
+    document.body.appendChild(finalImg);
   }
 };
 
