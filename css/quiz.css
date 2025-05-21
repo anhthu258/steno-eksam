@@ -73,7 +73,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 20px 20px;
   margin-top: 30px;
-  width: 520px; /* match question width + padding */
+  width: 520px;
 }
 
 .options button {
@@ -93,6 +93,11 @@ body {
 .options button:active {
   background-color: #7a231a;
   transform: scale(0.98);
+}
+
+.correct {
+  background-color: #249b48 !important;
+
 }
 
 #nextBtn {
