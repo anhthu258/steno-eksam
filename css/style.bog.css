@@ -39,8 +39,8 @@ body{
 
 .indhold{
     background-color: blueviolet; /*kontrol til at kunne se Omslag*/
-    width: 1250px; /*til at passe til bogens størrelse*/
-    height: 1500px;
+    width: 32vw; /*til at passe til bogens størrelse*/
+    height: 70vh;
     position: absolute;
     top: 15%;
     left: 50%;
@@ -51,4 +51,5 @@ body{
     background-color: rgb(52, 43, 226); /*kontrol til at kunne se Omslag*/
     color: white;/*kontrol til at kunne se test */
 }
+
 
