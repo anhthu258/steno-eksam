@@ -1,4 +1,4 @@
-
+// gemmer main kontent indtil video loader ind
 "use strict";
 var myVar;
 
