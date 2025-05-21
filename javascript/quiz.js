@@ -45,12 +45,7 @@ function showQuestion() {
 
 function selectOption(index) {
   const q = quiz[current];
-  if (index === q.answer) {
-    correct++;
-    document.getElementById('result').textContent = 'Rigtig!';
-  } else {
-    document.getElementById('result').textContent = 'Forkert!';
-  }
+  correct++;
 
   document.getElementById('correctCount').textContent = correct;
   Array.from(document.getElementById('options').children).forEach(btn => btn.disabled = true);
@@ -58,18 +53,31 @@ function selectOption(index) {
 
   const optionButtons = Array.from(document.getElementById('options').children);
   optionButtons[q.answer].classList.add('correct');
-
 }
 
 document.getElementById('nextBtn').onclick = () => {
   current++;
   if (current < quiz.length) {
+    document.getElementById('question').style.height = '100px';
     showQuestion();
   } else {
-    document.getElementById('question').textContent = 'Quiz finished!';
+    const questionElem = document.getElementById('question');
+    questionElem.textContent = 'Ligesom du lige oplevede i videoen, kan nogle angstanfald også medføre ringen for ørerne, hvilket kan gøre det vanskeligt at høre og opfatte sine omgivelser. Det kan derfor være udfordrende at modtage og forstå forskellige informationer.';
+    questionElem.style.height = '175px'; 
     document.getElementById('options').innerHTML = '';
     document.getElementById('nextBtn').style.display = 'none';
     document.getElementById('result').textContent = `You got ${correct} out of ${quiz.length} correct.`;
+
+    const restartLink = document.createElement('a');
+    restartLink.href = 'index.html';
+    restartLink.textContent = 'Tilbage til start';
+    restartLink.style.display = 'block';
+    restartLink.style.marginTop = '20px';
+    restartLink.style.textAlign = 'center';
+    restartLink.style.color = '#fff';
+    restartLink.style.fontSize = '1.2em';
+    restartLink.style.textDecoration = 'none'; 
+    document.getElementById('result').appendChild(restartLink);
   }
 };
 
