@@ -52,6 +52,7 @@ function selectOption(index) {
     document.getElementById('result').textContent = 'Forkert!';
   }
   document.getElementById('correctCount').textContent = correct;
+  Array.from(document.getElementById('options').children).forEach(btn => btn.disabled = true);
   document.getElementById('nextBtn').style.display = 'inline';
 }
 
