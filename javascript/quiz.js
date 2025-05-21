@@ -16,7 +16,7 @@ const quiz = [
     answer: 3
   },
   {
-    question: "Hvad er det bedste, du kan gøre for en ven under et angstanfald?",
+    question: "Hvad er det bedste du kan gøre <br> for en ven under et angstanfald?",
     options: ["Være til stede og spørge hvad de har brug for", "Give dem et kram", "Tage dem med ud i frisk luft uden at spørge først", "Fortælle dem hvad de skal gøre"],
     answer: 0
   }
@@ -51,9 +51,14 @@ function selectOption(index) {
   } else {
     document.getElementById('result').textContent = 'Forkert!';
   }
+
   document.getElementById('correctCount').textContent = correct;
   Array.from(document.getElementById('options').children).forEach(btn => btn.disabled = true);
   document.getElementById('nextBtn').style.display = 'inline';
+
+  const optionButtons = Array.from(document.getElementById('options').children);
+  optionButtons[q.answer].classList.add('correct');
+
 }
 
 document.getElementById('nextBtn').onclick = () => {
@@ -67,5 +72,7 @@ document.getElementById('nextBtn').onclick = () => {
     document.getElementById('result').textContent = `You got ${correct} out of ${quiz.length} correct.`;
   }
 };
+
+
 
 showQuestion();
