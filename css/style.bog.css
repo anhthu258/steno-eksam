@@ -1,21 +1,13 @@
 body{
     background-image: url(/img/background1.png);
-    background-size: 100vw 100vh;
     background-repeat: no-repeat;
+    display: grid;
+    place-content: center;
     margin: 0;
     padding: 0;
     height: 100vh;
-    animation: backgroundAnim 600ms linear infinite;
-
+    width: 100vw;
 }
-/*@keyframes backgroundAnim {
-    0% {
-        background-position: 0 0px;
-    }
-    100% {
-        background-position: 100px 0px; 
-    }
-} */
 
 .blank img {
     position: fixed;
@@ -52,5 +44,34 @@ body{
     color: white;/*kontrol til at kunne se test */
 }
 
+.side-alt img{  
+    width: 100%;
+    height: auto;
+}
+.side img{
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+.nav img{
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 100; /*sørger for knapperne er øverst*/
+    max-width: 300px;
+    max-height: 500px;
+}
 
 
