@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', function() {
     const forwardBtn = document.getElementById('forward-btn');
     const controls = document.querySelector('.video-controls');
     const endPopup = document.getElementById('end-popup');
-    const character = document.getElementById('character-container');
     const closePopup = document.getElementById('close-popup');
     let hideTimeout;
 
@@ -74,7 +73,7 @@ window.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('mousemove', showControls);
     document.addEventListener('touchstart', showControls);
 
-    // Fjerner kontrollene etter 2 sekunder
+    // Fjerner kontrollene efter 2 sekunder
     hideTimeout = setTimeout(() => {
         controls.classList.add('hide');
     }, 2000);
