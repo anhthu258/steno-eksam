@@ -8,10 +8,10 @@
 </head>
 <body>
     <main class="bog-flip">
-        <div class="blank">
+       <!-- <div class="blank">
             <img src="/img/bog-blank.png" alt="">
-        </div>
-        <section class="indhold">¨
+        </div> -->
+        <section class="indhold">
             <!--forside-->
             <div class="omslag">Test</div>  <!--omslag er forside og bagside sp den "lukkede" bog-->
             <div class="omslag"></div>
@@ -19,7 +19,6 @@
             <div><p>TEST TEST TEST</p></div> <!--checker forside virker-->
             <!--side 1-->
             <div class="side-alt">
-                <img src="/img/side1.png" alt="">
                 <img src="/img/depression-side-1.png" alt="">
             </div>
             <!--side 2-->
@@ -32,11 +31,12 @@
                 </div>
             </div>
         </section>
+        
     </main>
-    <script src="jquery.js"></script>
-    <script src="turn.js"></script>
+    <script src="/javascript/jquery.js"></script>
+    <script src="/javascript/turn.js"></script>
     <script>
-        $(".flipbook").turn();
+        $(".indhold").turn();
     </script>
 </body>
 </html>
