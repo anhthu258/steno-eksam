@@ -1,0 +1,32 @@
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+    .quiz-container
+    { background: #fff;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+   }
+
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+   }
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      background: #e2e2e2;
+      cursor: pointer;
+   }
+
+    .options button:hover
+    { background: #d4d4d4;
+   }
+
+    .result {
+      font-size: 1.1em;
+      margin-top: 20px;
+   }
