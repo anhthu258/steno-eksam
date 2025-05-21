@@ -45,8 +45,9 @@ function showQuestion() {
 
 function selectOption(index) {
   const q = quiz[current];
-  correct++;
-
+  if (index === q.answer) {
+    correct++;
+  }
   document.getElementById('correctCount').textContent = correct;
   Array.from(document.getElementById('options').children).forEach(btn => btn.disabled = true);
   document.getElementById('nextBtn').style.display = 'inline';
@@ -58,25 +59,34 @@ function selectOption(index) {
 document.getElementById('nextBtn').onclick = () => {
   current++;
   if (current < quiz.length) {
-    document.getElementById('question').style.height = '100px';
+    document.getElementById('svarCounter').style.display = '';
+    document.getElementById('spmCounter').style.display = '';
+    const resultLine = document.getElementById('finalResultLine');
+    if (resultLine) resultLine.remove();
     showQuestion();
   } else {
+    document.getElementById('svarCounter').style.display = 'none';
+    document.getElementById('spmCounter').style.display = 'none';
+
+
+    const finalResult = document.createElement('div');
+    finalResult.id = 'finalResultLine';
+    finalResult.textContent = `! Du fik  ${correct} / ${quiz.length} rigtige svar !`;
+    finalResult.classList.add('final-result');
+
+    document.querySelector('.quiz-container').insertBefore(finalResult, document.getElementById('question'));
+
     const questionElem = document.getElementById('question');
     questionElem.textContent = 'Ligesom du lige oplevede i videoen, kan nogle angstanfald også medføre ringen for ørerne, hvilket kan gøre det vanskeligt at høre og opfatte sine omgivelser. Det kan derfor være udfordrende at modtage og forstå forskellige informationer.';
-    questionElem.style.height = '175px'; 
+    questionElem.style.height = '175px';
     document.getElementById('options').innerHTML = '';
     document.getElementById('nextBtn').style.display = 'none';
-    document.getElementById('result').textContent = `You got ${correct} out of ${quiz.length} correct.`;
+    document.getElementById('result').textContent = '';
 
     const restartLink = document.createElement('a');
     restartLink.href = 'index.html';
     restartLink.textContent = 'Tilbage til start';
-    restartLink.style.display = 'block';
-    restartLink.style.marginTop = '20px';
-    restartLink.style.textAlign = 'center';
-    restartLink.style.color = '#fff';
-    restartLink.style.fontSize = '1.2em';
-    restartLink.style.textDecoration = 'none'; 
+    restartLink.classList.add('restartLink');
     document.getElementById('result').appendChild(restartLink);
   }
 };

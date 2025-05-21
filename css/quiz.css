@@ -120,3 +120,24 @@ body {
   transform: translateY(-50%);
   z-index: 200;
 }
+
+.final-result {
+  display: block;
+  margin: 0 auto 80px auto;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+  
+}
+
+.restartLink {
+  display: block;
+  margin-top: 60px;      
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+
+}
+
+
