@@ -1,3 +1,4 @@
+"use strict";
 // Video player script for angst video
 window.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('angst-video');
@@ -11,11 +12,35 @@ window.addEventListener('DOMContentLoaded', function() {
     const closePopup = document.getElementById('close-popup');
     let hideTimeout;
 
+    // Toggle play/pause knap synlighed
+    function updatePlayPauseButtons() {
+        if (video.paused) {
+            playBtn.style.display = 'inline-block';
+            pauseBtn.style.display = 'none';
+        } else {
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline-block';
+        }
+    }
+
+    // Initial state
+    updatePlayPauseButtons();
+
     // Events for video kontroller
-    playBtn.onclick = () => video.play();
-    pauseBtn.onclick = () => video.pause();
+    playBtn.onclick = () => {
+        video.play();
+        updatePlayPauseButtons();
+    };
+    pauseBtn.onclick = () => {
+        video.pause();
+        updatePlayPauseButtons();
+    };
     backwardBtn.onclick = () => video.currentTime = Math.max(0, video.currentTime - 10);
     forwardBtn.onclick = () => video.currentTime = Math.min(video.duration, video.currentTime + 10);
+
+    // Update buttons on play/pause events
+    video.addEventListener('play', updatePlayPauseButtons);
+    video.addEventListener('pause', updatePlayPauseButtons);
 
     // Popup når video er færdig
     video.addEventListener('ended', function() {
@@ -25,7 +50,6 @@ window.addEventListener('DOMContentLoaded', function() {
     // Lukker popup ved at klikke udenfor popupen
     if (endPopup) {
         endPopup.addEventListener('click', function(e) {
-            // Lukker popup ved at klikke udenfor popupen
             if (e.target === endPopup) {
                 endPopup.style.display = 'none';
             }
@@ -55,3 +79,11 @@ window.addEventListener('DOMContentLoaded', function() {
         controls.classList.add('hide');
     }, 2000);
 });
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+  // Autoplay videoen
+  const video = document.getElementById("angst-video");
+  if (video) video.play();
+}
