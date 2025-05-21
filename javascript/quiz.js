@@ -17,7 +17,7 @@ const quiz = [
   },
   {
     question: "Hvad er det bedste du kan gøre <br> for en ven under et angstanfald?",
-    options: ["Være til stede og spørge hvad de har brug for", "Give dem et kram", "Tage dem med ud i frisk luft uden at spørge først", "Fortælle dem hvad de skal gøre"],
+    options: ["Være til stede og spørge <br> hvad de har brug for", "Give dem et kram", "Tage dem med ud i frisk <br> luft uden at spørge først", "Fortælle dem hvad <br> de skal gøre"],
     answer: 0
   }
 ];
@@ -38,6 +38,7 @@ function showQuestion() {
   q.options.forEach((option, index) => {
     const btn = document.createElement('button');
     btn.textContent = option;
+    btn.innerHTML = option;
     btn.onclick = () => selectOption(index);
     optionsDiv.appendChild(btn);
   });
@@ -76,9 +77,12 @@ document.getElementById('nextBtn').onclick = () => {
 
     document.querySelector('.quiz-container').insertBefore(finalResult, document.getElementById('question'));
 
+        document.body.classList.add('body-final-bg');
+
     const questionElem = document.getElementById('question');
     questionElem.textContent = 'Ligesom du lige oplevede i videoen, kan nogle angstanfald også medføre ringen for ørerne, hvilket kan gøre det vanskeligt at høre og opfatte sine omgivelser. Det kan derfor være udfordrende at modtage og forstå forskellige informationer.';
-    questionElem.style.height = '175px';
+    questionElem.style.height = '200px';
+    questionElem.classList.add('final-bg');
     document.getElementById('options').innerHTML = '';
     document.getElementById('nextBtn').style.display = 'none';
     document.getElementById('result').textContent = '';
