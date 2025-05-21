@@ -1,5 +1,4 @@
-'use strict';
-const quiz = [
+const questions = [
   {
 question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse inden de bliver 18?",
     options: ["20%", "13%", "15%", "17%"],
@@ -21,3 +20,49 @@ question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse
     answer: 0
   }
 ];
+
+
+let currentQuestion = 0;
+let score = 0;
+
+function showQuestion() {
+  const questionElement = document.getElementById('question');
+  const optionsElement = document.getElementById('options');
+  const current = questions[currentQuestion];
+
+  questionElement.textContent = current.question;
+  optionsElement.innerHTML = '';
+
+  current.options.forEach((option, index) => {
+    const button = document.createElement('button');
+    button.textContent = option;
+    button.addEventListener('click', () => checkAnswer(index));
+    optionsElement.appendChild(button);
+  });
+}
+
+function checkAnswer(selectedIndex) {
+  const resultElement = document.getElementById('result');
+  if (selectedIndex === questions[currentQuestion].answer) {
+    score++;
+    resultElement.textContent = "Correct!";
+  } else {
+    resultElement.textContent = "Wrong answer.";
+  }
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    setTimeout(() => {
+      resultElement.textContent = "";
+      showQuestion();
+    }, 1000);
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  const quizContainer = document.querySelector('.quiz-container');
+  quizContainer.innerHTML = `<h2>You scored ${score} out of ${questions.length}.</h2>`;
+}
+
+showQuestion();
