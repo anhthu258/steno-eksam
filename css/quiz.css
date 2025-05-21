@@ -1,18 +1,54 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'MyFont', sans-serif;
   min-height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #c27777;
+  background: #000000;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('/font/KGTenThousandReasonsAlt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .counter {
   margin-bottom: 10px;
   color: white;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
 }
+
+.svar {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  background: rgba(0,0,0,0.7);
+  padding: 12px 18px;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+.spørgsmål {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  color: white;
+  background: rgba(0,0,0,0.7);
+  padding: 12px 18px;
+  border-radius: 10px;
+  z-index: 100;
+  text-align: right;
+}
+
+
 .options button {
+  font-family: 'MyFont', sans-serif;
   display: block;
   margin: 5px 0;
   width: 100%;
@@ -22,8 +58,9 @@ body {
   width: 500px;
   height: 100px;
   background-color: #a0392f;
-  border-radius: 100px;
-  box-shadow: 0 0 60px 20px rgba(160, 57, 47, 0.1);
+  border-radius: 35px;
+  box-shadow: 0 0 60px 20px rgba(160, 57, 47, 0.4);
+  border: rgb(255, 255, 255, 0.5) solid 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,10 +88,21 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  transition: background 0.2s, transform 0.2s;
 }
 
 .options button:active {
   background-color: #7a231a;
   transform: scale(0.98);
+}
+
+#nextBtn {
+  display: none;
+  cursor: pointer;
+  width: 48px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  right: 100px;
+  transform: translateY(-50%);
+  z-index: 200;
 }
