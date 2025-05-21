@@ -1,4 +1,4 @@
-
+// Video player script for angst video
 window.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('angst-video');
     const playBtn = document.getElementById('play-btn');
