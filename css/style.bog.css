@@ -4,7 +4,8 @@
     padding: 0;
 }
 body{
-    background-image: url(/img/background1.png);
+    /*background-image: url(/img/background1.png);*/
+    background-color: blue; /* test for at kontrolere hvor formattering går galt */
     background-repeat: no-repeat;
     display: grid;
     place-content: center;
@@ -24,29 +25,47 @@ body{
 }
 
 .indhold{
-    background-color: blueviolet; /*kontrol til at kunne se Omslag*/
+    background-color: blueviolet; /*kontrol til at kunne se omslag*/
     width: 32vw; /*til at passe til bogens størrelse*/
     height: 70vh;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    /*transform: rotate(-3deg);*/
+
 }
 
 .indhold .omslag{
-    background-color: rgb(52, 43, 226); /*kontrol til at kunne se Omslag*/
+    background-color: rgb(52, 43, 226); /*kontrol til at kunne se omslag*/
     color: white;/*kontrol til at kunne se test */
 }
 
-.side-alt img{  
-    width: 100%;
+.indhold .page{
+    background-color: white; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page img{
+    width: 200%;
+    object-fit: cover;
+    margin: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.side-alt img{
+    position: relative;
+    top: 90%;
+    left: 60%;
+    padding: 0;
+    margin: 0;
+    width: 270%;
     height: auto;
 }
+
 .side img{
     position: relative;
     top: 0;
-    right: 0;
-    width: 100%;
+    right: 0%;
+    width: 80%;
     margin: 0;
     padding: 0;
     height: auto;
@@ -63,7 +82,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    z-index: 100; /*sørger for knapperne er øverst*/
+    z-index: 1000; /*sørger for knapperne er øverst*/
     max-width: 300px;
     max-height: 500px;
 }
