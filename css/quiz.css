@@ -15,6 +15,13 @@ body {
   font-style: normal;
 }
 
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .counter {
   margin-bottom: 10px;
   color: white;
@@ -59,13 +66,15 @@ body {
   height: 100px;
   background-color: #a0392f;
   border-radius: 35px;
-  box-shadow: 0 0 60px 20px rgba(160, 57, 47, 0.4);
-  border: rgb(255, 255, 255, 0.5) solid 5px;
+  box-shadow: 0 0 60px 20px rgba(160, 57, 47, 0.1), 0 0 20px 5px rgba(255,255,255,0.3);
+  border: rgb(255, 255, 255, 0.6) solid 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   padding: 0 20px;
+  text-align: center;
+  font-size: large;
 }
 
 .options {
@@ -77,17 +86,17 @@ body {
 }
 
 .options button {
-  height: 100px;
+  height: 80px;
   background-color: #a0392f;
   border-radius: 100px;
   color: white;
-  font-size: 1.2em;
-  border: rgb(255, 255, 255) solid 2px;
+  font-size: 1em;
+  box-shadow: 0 0 60px 20px rgba(160, 57, 47, 0.1), 0 0 20px 5px rgba(255,255,255,0.3);
+  border: rgb(255, 255, 255, 0.6) solid 5px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
 }
 
 .options button:active {
