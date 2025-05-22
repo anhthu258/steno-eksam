@@ -39,6 +39,10 @@ window.addEventListener('DOMContentLoaded', function() {
     video.addEventListener('play', updatePlayPauseButtons);
     video.addEventListener('pause', updatePlayPauseButtons);
 
+    video.addEventListener('ended', function() {
+    window.location.href = 'quiz.html';
+});
+
     document.addEventListener('mousemove', showControls);
     document.addEventListener('touchstart', showControls);
 
