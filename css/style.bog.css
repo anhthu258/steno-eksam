@@ -27,33 +27,32 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 300px;
+  width: 100vw;
+  height: 100vh;
   z-index: 1;
+  border : 10px solid #8202ea;
 }
 
-.bog-flip img {
+#blank img {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  scale: 2.8;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: auto;
   object-fit: cover;
+  border : 10px solid #8202ea;
+  opacity: 0.5;
 }
 
 .flipbook {
-  position: fixed;
-  top: -65%;
-  left: -60%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 1100px;
-  height: 60vw;      
-  max-height: 700px;
-  z-index: 10;       
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  border : 10px solid #4dff00;  
+  height: 75%;
+  width: 50%;
 }
-
 
 
 .flipbook .hard {
@@ -81,12 +80,13 @@ body {
 
 .side-alt img {
   position: relative;
-  top: 6%;
+  top: 0%;
   left: 65%;
-  width: 105%;
+  width: 300%;
   height: auto;
   padding: 0;
   margin: 0;
+  border : 10px solid #246707;
 }
 
 .side {
@@ -144,10 +144,34 @@ h1, h2, h3, h4{
 .gif {
   position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border : 1px solid #e80707;
+  width: 60%;
+  height: 75%;
 }
 
-#gifadh img, #gifang img, #gifdep img {
+#gifadh img,#gifdep img, #gifang img  {
+
   width: 80px; /* or your preferred size */
   height: auto;
   z-index: 1001;
+}
+
+#gifadh img{
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+#gifdep img{
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+#gifadh img{
+  position: absolute;
+  top: 0;
+  right: 50%;
 }
