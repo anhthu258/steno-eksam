@@ -7,8 +7,6 @@ window.addEventListener('DOMContentLoaded', function() {
     const backwardBtn = document.getElementById('backward-btn');
     const forwardBtn = document.getElementById('forward-btn');
     const controls = document.querySelector('.video-controls');
-    const endPopup = document.getElementById('end-popup');
-    const closePopup = document.getElementById('close-popup');
     let hideTimeout;
 
     // Toggle play/pause knap synlighed
@@ -40,21 +38,6 @@ window.addEventListener('DOMContentLoaded', function() {
     // Update buttons on play/pause events
     video.addEventListener('play', updatePlayPauseButtons);
     video.addEventListener('pause', updatePlayPauseButtons);
-
-
-    // Gå direkte til quiz.html når videoen er færdig
-    video.addEventListener('ended', function() {
-        window.location.href = 'quiz.html';
-    });
-
-    // gemmer/viser kontrollene
-    function showControls() {
-        controls.classList.remove('hide');
-        clearTimeout(hideTimeout);
-        hideTimeout = setTimeout(() => {
-            controls.classList.add('hide');
-        }, 2000);
-    }
 
     document.addEventListener('mousemove', showControls);
     document.addEventListener('touchstart', showControls);
