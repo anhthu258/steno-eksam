@@ -51,7 +51,7 @@ p {
 }
 
 .zooming {
-  animation: zoomIn 0.1s forwards;
+  animation: zoomIn 1.5s forwards;
   z-index: 1000;
   position: relative;
 }
