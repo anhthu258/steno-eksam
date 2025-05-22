@@ -45,7 +45,7 @@ body {
 .flipbook {
   position: fixed; /* changed from absolute */
   top: -65%;
-  left: -65%;
+  left: -60%;
   transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 1100px;

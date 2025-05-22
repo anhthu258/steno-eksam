@@ -1,4 +1,5 @@
 'use strict';
+
 const quiz = [
   {
     question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse inden de bliver 18?",
@@ -17,13 +18,46 @@ const quiz = [
   },
   {
     question: "Hvad er det bedste du kan gøre <br> for en ven under et angstanfald?",
-    options: ["Være til stede og spørge <br> hvad de har brug for", "Give dem et kram", "Tage dem med ud i frisk <br> luft uden at spørge først", "Fortælle dem hvad <br> de skal gøre"],
+    options: [
+      "Være til stede og spørge <br> hvad de har brug for",
+      "Give dem et kram",
+      "Tage dem med ud i frisk <br> luft uden at spørge først",
+      "Fortælle dem hvad <br> de skal gøre"
+    ],
     answer: 0
   }
 ];
 
 let current = 0;
 let correct = 0;
+
+function showIntro() {
+  document.getElementById('svarCounter').style.display = 'none';
+  document.getElementById('spmCounter').style.display = 'none';
+  document.getElementById('nextBtn').style.display = 'none';
+
+  const questionDiv = document.getElementById('question');
+  questionDiv.innerHTML = `Test din viden om angst her <img src="/img/hvid-pil.png" alt="Start" style="height:1em;vertical-align:middle;margin-left:1rem;">`;
+  questionDiv.style.cursor = "pointer";
+  questionDiv.classList.add('intro-btn');
+  document.getElementById('options').innerHTML = '';
+  document.getElementById('result').innerHTML = '';
+
+  const restartLink = document.createElement('a');
+  restartLink.href = 'index.html';
+  restartLink.textContent = 'Tilbage til start';
+  restartLink.classList.add('restartLink');
+  document.getElementById('result').appendChild(restartLink);
+
+  questionDiv.onclick = () => {
+    questionDiv.onclick = null;
+    questionDiv.style.cursor = "";
+    questionDiv.classList.remove('intro-btn');
+    showQuestion();
+    document.getElementById('svarCounter').style.display = '';
+    document.getElementById('spmCounter').style.display = '';
+  };
+}
 
 function showQuestion() {
   document.getElementById('questionNumber').textContent = current + 1;
@@ -32,7 +66,12 @@ function showQuestion() {
   document.getElementById('nextBtn').style.display = 'none';
 
   const q = quiz[current];
-  document.getElementById('question').innerHTML = q.question; 
+  const questionDiv = document.getElementById('question');
+  questionDiv.innerHTML = q.question;
+  questionDiv.style.cursor = "";
+  questionDiv.classList.remove('intro-btn');
+  questionDiv.onclick = null;
+
   const optionsDiv = document.getElementById('options');
   optionsDiv.innerHTML = '';
   q.options.forEach((option, index) => {
@@ -41,11 +80,11 @@ function showQuestion() {
     btn.innerHTML = option;
     btn.onclick = () => selectOption(index);
 
-      if (current === 3) { 
-    btn.style.fontSize = '2vh';
-  } else {
-    btn.style.fontSize = '2.8vh';
-  }
+    if (current === 3) {
+      btn.style.fontSize = '2vh';
+    } else {
+      btn.style.fontSize = '2.8vh';
+    }
     optionsDiv.appendChild(btn);
   });
 }
@@ -75,7 +114,6 @@ document.getElementById('nextBtn').onclick = () => {
     document.getElementById('svarCounter').style.display = 'none';
     document.getElementById('spmCounter').style.display = 'none';
 
-
     const finalResult = document.createElement('div');
     finalResult.id = 'finalResultLine';
     finalResult.textContent = `! Du fik  ${correct} / ${quiz.length} rigtige svar !`;
@@ -83,7 +121,7 @@ document.getElementById('nextBtn').onclick = () => {
 
     document.querySelector('.quiz-container').insertBefore(finalResult, document.getElementById('question'));
 
-        document.body.classList.add('body-final-bg');
+    document.body.classList.add('body-final-bg');
 
     const questionElem = document.getElementById('question');
     questionElem.textContent = 'Ligesom du lige oplevede i videoen, kan nogle angstanfald også medføre ringen for ørerne, hvilket kan gøre det vanskeligt at høre og opfatte sine omgivelser. Det kan derfor være udfordrende at modtage og forstå forskellige informationer.';
@@ -100,7 +138,7 @@ document.getElementById('nextBtn').onclick = () => {
     document.getElementById('result').appendChild(restartLink);
 
     const finalImg = document.createElement('img');
-    finalImg.src = '/img/sidder-ned.png'; 
+    finalImg.src = '/img/sidder-ned.png';
     finalImg.alt = 'Sidder ned';
     finalImg.className = 'final-img';
     document.body.appendChild(finalImg);
@@ -108,5 +146,4 @@ document.getElementById('nextBtn').onclick = () => {
 };
 
 
-
-showQuestion();
+showIntro();
