@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: TenThousand;
+    src: url(../fonts/TenThousand.ttf) format('truetype');
+}
+
 /* Body styling */
 body {
     background-image: url(../img/border.png);
@@ -75,6 +80,16 @@ body {
     width: 85vw;
     height: 85vh;
     object-fit: cover;
+}
+
+/* Subtitles styling */
+video::cue {
+    color: #fff;             
+    background: rgba(0,0,0,0.7);
+    font-size: 1.6rem;
+    font-family: 'TenThousand', sans-serif;
+    text-shadow: 2px 2px 4px #000;
+    padding: 0.2em 0.6em; 
 }
 
 /* Video controls */
