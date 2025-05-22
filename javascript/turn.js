@@ -1870,17 +1870,41 @@
   $(function() {
   $(".flipbook").turn();
 
+  // klik på en pil -> bladre til næste side
   $(".flipbook").on("click", ".next-pil", function(e) {
     e.preventDefault();
     $(".flipbook").turn("next");
   });
+
+  // klik på en pil -> bladre til forrige side
   $(".flipbook").on("click", ".prev-pil", function(e) {
     e.preventDefault();
     $(".flipbook").turn("previous");
   });
+
+  // klik på en hjem knap -> bladre til forsiden
   $(".flipbook").on("click", ".hjem", function(e) {
     e.preventDefault();
     $(".flipbook").turn("page", 1);
+    console.log("test");
+  });
+
+// klik på angst på forsiden -> bladre til angst siden
+    $(".flipbook").on("click", ".side-angst", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("page", 2);
+    console.log("test");
+  });
+// klik på depression på forsiden -> bladre til depression siden
+      $(".flipbook").on("click", ".side-depression", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("page", 4);
+    console.log("test");
+  });
+// klik på adhd på forsiden -> bladre til adhd siden
+      $(".flipbook").on("click", ".side-adhd", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("page", 6);
     console.log("test");
   });
 });

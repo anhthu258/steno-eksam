@@ -82,9 +82,9 @@ body {
 
 .side-alt img {
   position: relative;
-  top: 0%;
-  left: 55%;
-  width: 230%;
+  top: 5%;
+  left: 60%;
+  width: 280%;
   height: auto;
   padding: 0;
   margin: 0;
@@ -153,10 +153,12 @@ h1, h2, h3, h4{
 }
 
 #gifadh img,#gifdep img, #gifang img  {
-
-  width: 20%; /* or your preferred size */
+  width: 20%; 
   height: auto;
-  z-index: 1001;
+  z-index: 1101;
+  border : 10px solid #8202ea;
+  cursor: pointer;
+
 }
 
 #gifadh img{
@@ -176,11 +178,9 @@ h1, h2, h3, h4{
 #gifang img{
   position: absolute;
   bottom: 10%;
-  left: 5%;
+  right: 100%;
   width: 17%;
   height: auto;
-}
-
-#angst-gif2 img{
+  z-index: 1001;
   cursor: pointer;
 }
