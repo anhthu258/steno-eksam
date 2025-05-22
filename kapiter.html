@@ -84,7 +84,6 @@
                 <div class="nav">
                     <img src="/img/arrow2.png" alt="" class="prev-pil">
                     <img src="/img/Homebutton.png" alt="" class="hjem">
-                    <img src="/img/arrow1" alt="" class="next-pil"> <!-- skal ikke virke den er placeholder-->
                 </div>
             </div>
         </section>
@@ -92,8 +91,24 @@
     </main>
     <script src="/javascript/jquery.js"></script>
     <script src="/javascript/turn.js"></script>
-    <script>
-        $(".flipbook").turn();
-    </script>
+<script>
+  $(function() {
+    $(".flipbook").turn();
+
+    $(".next-pil").on("click", function(e) {
+      e.preventDefault();
+      $(".flipbook").turn("next");
+    });
+    $(".prev-pil").on("click", function(e) {
+      e.preventDefault();
+      $(".flipbook").turn("previous");
+    });
+    $(".hjem").on("click", function(e) {
+      e.preventDefault();
+      $(".flipbook").turn("page", 1);
+      console.log("test");
+    });
+  });
+</script>
 </body>
 </html>
