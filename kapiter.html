@@ -91,24 +91,5 @@
     </main>
     <script src="/javascript/jquery.js"></script>
     <script src="/javascript/turn.js"></script>
-<script>
-  $(function() {
-    $(".flipbook").turn();
-
-    $(".next-pil").on("click", function(e) {
-      e.preventDefault();
-      $(".flipbook").turn("next");
-    });
-    $(".prev-pil").on("click", function(e) {
-      e.preventDefault();
-      $(".flipbook").turn("previous");
-    });
-    $(".hjem").on("click", function(e) {
-      e.preventDefault();
-      $(".flipbook").turn("page", 1);
-      console.log("test");
-    });
-  });
-</script>
 </body>
 </html>

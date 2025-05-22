@@ -1867,4 +1867,21 @@
     for (a in c) if (void 0 !== b.style[a]) return c[a];
   };
   f.findPos = C;
+  $(function() {
+  $(".flipbook").turn();
+
+  $(".flipbook").on("click", ".next-pil", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("next");
+  });
+  $(".flipbook").on("click", ".prev-pil", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("previous");
+  });
+  $(".flipbook").on("click", ".hjem", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("page", 1);
+    console.log("test");
+  });
+});
 })(jQuery);
