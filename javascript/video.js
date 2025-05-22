@@ -41,25 +41,11 @@ window.addEventListener('DOMContentLoaded', function() {
     video.addEventListener('play', updatePlayPauseButtons);
     video.addEventListener('pause', updatePlayPauseButtons);
 
-    // Popup når video er færdig
+
+    // Gå direkte til quiz.html når videoen er færdig
     video.addEventListener('ended', function() {
-        if (endPopup) endPopup.style.display = 'flex';
+        window.location.href = 'quiz.html';
     });
-
-    // Lukker popup ved at klikke udenfor popupen
-    if (endPopup) {
-        endPopup.addEventListener('click', function(e) {
-            if (e.target === endPopup) {
-                endPopup.style.display = 'none';
-            }
-        });
-    }
-
-    if (closePopup) {
-        closePopup.onclick = function() {
-            endPopup.style.display = 'none';
-        };
-    }
 
     // gemmer/viser kontrollene
     function showControls() {
