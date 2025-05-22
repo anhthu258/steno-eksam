@@ -1907,5 +1907,16 @@
     $(".flipbook").turn("page", 6);
     console.log("test");
   });
+    $("#gifang").on("click", function() {
+      $(".flipbook").turn("page", 2);
+    });
+    
+    $("#gifdep").on("click", function() {
+      $(".flipbook").turn("page", 4);
+    });
+
+    $("#gifadh").on("click", function() {
+      $(".flipbook").turn("page", 6);
+    });
 });
 })(jQuery);
