@@ -191,14 +191,19 @@ h1, h2, h3, h4{
     visibility: hidden;
     opacity: 100%;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 3rem;
+    left: 34%;
     background-color: #bb1010;
     color: white;
     padding: 15px;
     z-index: 1000;
     transition: opacity 0.5s, visibility 0.5s;
+    font-size: 1.5rem;
+    font-weight: light;
+    border: rgb(255, 255, 255) 2px solid;
 }
+
+
 
 #error.error-vist {
     visibility: visible;
