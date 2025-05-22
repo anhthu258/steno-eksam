@@ -39,6 +39,10 @@ window.addEventListener('DOMContentLoaded', function() {
     video.addEventListener('play', updatePlayPauseButtons);
     video.addEventListener('pause', updatePlayPauseButtons);
 
+    video.addEventListener('ended', function() {
+    window.location.href = 'quiz.html';
+});
+
     document.addEventListener('mousemove', showControls);
     document.addEventListener('touchstart', showControls);
 
@@ -51,7 +55,9 @@ window.addEventListener('DOMContentLoaded', function() {
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
-  // Autoplay videoen
   const video = document.getElementById("angst-video");
-  if (video) video.play();
+  if (video) {
+    video.muted = false; // Unmute videoen
+    video.play();        // start videoen med lyd
+  }
 }
