@@ -158,3 +158,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+#home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
