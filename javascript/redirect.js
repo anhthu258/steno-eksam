@@ -1,4 +1,4 @@
-
+"use strict";
   let adhdReady = false; // Ændres hvis adhd underside er klar til brug 
   let depressionReady = true; // Ændres hvis depression underside er klar til brug
   

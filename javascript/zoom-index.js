@@ -1,5 +1,5 @@
 
-
+"use strict";
   document.addEventListener('DOMContentLoaded', function() {
     const bogImg = document.getElementById('bogLukket');
     if (bogImg) {

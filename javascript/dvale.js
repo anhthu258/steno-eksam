@@ -1,3 +1,4 @@
+"use strict";
 let dvaleTimer;
 
 function nulstilDvaleTimer() {
