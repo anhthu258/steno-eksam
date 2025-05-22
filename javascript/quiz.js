@@ -1,5 +1,6 @@
 'use strict';
 
+// Quiz-spørgsmål og svarmuligheder
 const quiz = [
   {
     question: "Hvor mange procent % af unge i Danmark <br> har haft en Angst lidelse inden de bliver 18?",
@@ -28,28 +29,33 @@ const quiz = [
   }
 ];
 
+// Variabler til at holde styr på nuværende spørgsmål og antal rigtige svar
 let current = 0;
 let correct = 0;
 
+// Viser intro-siden med start-knap og "tilbage til start"
 function showIntro() {
-  document.getElementById('svarCounter').style.display = 'none';
-  document.getElementById('spmCounter').style.display = 'none';
-  document.getElementById('nextBtn').style.display = 'none';
+  document.body.classList.add('intro-bg'); // Tilføj baggrundsbillede til intro
+  document.getElementById('svarCounter').style.display = 'none'; // Skjul svar-tæller
+  document.getElementById('spmCounter').style.display = 'none';  // Skjul spørgsmål-tæller
+  document.getElementById('nextBtn').style.display = 'none';     // Skjul næste-knap
 
+  // Sæt tekst og billede i intro-boksen
   const questionDiv = document.getElementById('question');
   questionDiv.innerHTML = `Test din viden om angst her <img src="/img/hvid-pil.png" alt="Start" style="height:1em;vertical-align:middle;margin-left:1rem;">`;
-  questionDiv.style.cursor = "pointer";
   questionDiv.classList.add('intro-btn');
-  document.getElementById('options').innerHTML = '';
-  document.getElementById('result').innerHTML = '';
 
+
+  // Tilføj "Tilbage til start"-link under boksen
   const restartLink = document.createElement('a');
   restartLink.href = 'index.html';
   restartLink.textContent = 'Tilbage til start';
   restartLink.classList.add('restartLink');
   document.getElementById('result').appendChild(restartLink);
 
+  // Når man klikker på boksen, starter quizzen
   questionDiv.onclick = () => {
+    document.body.classList.remove('intro-bg'); // Fjerner de hvide streger fra hjørnerne på intro siden
     questionDiv.onclick = null;
     questionDiv.style.cursor = "";
     questionDiv.classList.remove('intro-btn');
@@ -59,6 +65,7 @@ function showIntro() {
   };
 }
 
+// Viser det aktuelle spørgsmål og svarmuligheder
 function showQuestion() {
   document.getElementById('questionNumber').textContent = current + 1;
   document.getElementById('correctCount').textContent = correct;
@@ -80,6 +87,7 @@ function showQuestion() {
     btn.innerHTML = option;
     btn.onclick = () => selectOption(index);
 
+    // Tilpas fontstørrelse på sidste spørgsmål
     if (current === 3) {
       btn.style.fontSize = '2vh';
     } else {
@@ -89,19 +97,23 @@ function showQuestion() {
   });
 }
 
+// Håndterer valg af svar
 function selectOption(index) {
   const q = quiz[current];
   if (index === q.answer) {
     correct++;
   }
   document.getElementById('correctCount').textContent = correct;
+  // Deaktiver alle svar-knapper
   Array.from(document.getElementById('options').children).forEach(btn => btn.disabled = true);
   document.getElementById('nextBtn').style.display = 'inline';
 
+  // Marker det rigtige svar
   const optionButtons = Array.from(document.getElementById('options').children);
   optionButtons[q.answer].classList.add('correct');
 }
 
+// Når man klikker på næste-knappen
 document.getElementById('nextBtn').onclick = () => {
   current++;
   if (current < quiz.length) {
@@ -111,6 +123,7 @@ document.getElementById('nextBtn').onclick = () => {
     if (resultLine) resultLine.remove();
     showQuestion();
   } else {
+    // Quiz er slut, vis resultat og afslutningsside
     document.getElementById('svarCounter').style.display = 'none';
     document.getElementById('spmCounter').style.display = 'none';
 
@@ -131,12 +144,14 @@ document.getElementById('nextBtn').onclick = () => {
     document.getElementById('nextBtn').style.display = 'none';
     document.getElementById('result').textContent = '';
 
+    // Tilføj "Tilbage til start"-link på slutskærm
     const restartLink = document.createElement('a');
     restartLink.href = 'index.html';
     restartLink.textContent = 'Tilbage til start';
     restartLink.classList.add('restartLink');
     document.getElementById('result').appendChild(restartLink);
 
+    // Tilføj billede på slutskærm
     const finalImg = document.createElement('img');
     finalImg.src = '/img/sidder-ned.png';
     finalImg.alt = 'Sidder ned';
@@ -145,5 +160,5 @@ document.getElementById('nextBtn').onclick = () => {
   }
 };
 
-
+// Start med at vise intro-siden
 showIntro();

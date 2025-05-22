@@ -151,3 +151,10 @@ body {
   z-index: 300;
   pointer-events: none;
 }
+
+.intro-bg {
+  background-image: url('/img/white-corners.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
