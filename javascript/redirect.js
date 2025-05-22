@@ -18,8 +18,12 @@
     else {
         console.log("notifikation vist") 
         const notifikation = document.getElementById('error');
+        notifikation.textContent = "Videoen er ikke klar endnu";
         notifikation.classList.add('error-vist');
         
+        setTimeout(function() {
+            notifikation.classList.remove('error-vist');
+        }, 2000);
     }};
 
 

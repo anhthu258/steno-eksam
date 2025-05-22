@@ -200,7 +200,7 @@ h1, h2, h3, h4{
     transition: opacity 0.5s, visibility 0.5s;
 }
 
-#error-notification.error-vist {
+#error.error-vist {
     visibility: visible;
     opacity: 1;
 }
