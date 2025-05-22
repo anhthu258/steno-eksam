@@ -142,18 +142,12 @@ h1, h2, h3, h4{
 }
 
 .gif {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns for 3 images */
-  gap: 1rem; /* space between images */
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  max-width: 500px; /* or whatever fits your layout */
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
 }
 
 .gif img {
   width: 80px; /* or your preferred size */
   height: auto;
-  display: block;
+  z-index: 1001;
 }
