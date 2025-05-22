@@ -15,9 +15,11 @@
         window.location.href = 'adhd-video.html';
         console.log("videoen er klar");
     }
-    else
-    alert("videoen er ikke klar endnu");
-    console.log("videoen er ikke klar");
-  };
+    else {
+        console.log("notifikation vist") 
+        const notifikation = document.getElementById('error');
+        notifikation.classList.add('error-vist');
+        
+    }};
 
 

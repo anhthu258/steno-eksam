@@ -199,3 +199,8 @@ h1, h2, h3, h4{
     z-index: 1000;
     transition: opacity 0.5s, visibility 0.5s;
 }
+
+#error-notification.error-vist {
+    visibility: visible;
+    opacity: 1;
+}
