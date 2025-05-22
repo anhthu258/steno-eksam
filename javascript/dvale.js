@@ -4,5 +4,12 @@ function nulstilDvaleTimer() {
   clearTimeout(dvaleTimer);
   dvaleTimer = setTimeout(function() {
     window.location.href = "index.html";
-  }, 2000); 
+  }, 120000); //2 minutter dvale tilstand
 }
+
+
+['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(event => {
+  document.addEventListener(event, nulstilDvaleTimer, true);
+});
+
+nulstilDvaleTimer();
