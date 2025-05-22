@@ -146,7 +146,7 @@ h1, h2, h3, h4{
   top: 50%;
 }
 
-.gif img {
+#gifadh img, #gifang img, #gifdep img {
   width: 80px; /* or your preferred size */
   height: auto;
   z-index: 1001;
