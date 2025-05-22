@@ -1867,13 +1867,21 @@
     for (a in c) if (void 0 !== b.style[a]) return c[a];
   };
   f.findPos = C;
-      document.querySelector(".next-pil").onclick = function() {
-      $(".flipbook").turn("next");
-    };
-    document.querySelector(".hjem").onclick = function() {
-        $(".flipbook").turn("page", 1);
-    };
-    document.querySelector(".prev-pil").onclick = function() {
-      $(".flipbook").turn("previous");
-    };
+  $(function() {
+  $(".flipbook").turn();
+
+  $(".flipbook").on("click", ".next-pil", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("next");
+  });
+  $(".flipbook").on("click", ".prev-pil", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("previous");
+  });
+  $(".flipbook").on("click", ".hjem", function(e) {
+    e.preventDefault();
+    $(".flipbook").turn("page", 1);
+    console.log("test");
+  });
+});
 })(jQuery);
