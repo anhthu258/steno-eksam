@@ -69,6 +69,7 @@ body {
   align-items: center;
   gap: 10px;
   /*border : 10px solid #c000fa;  */
+  border: 1px solid rgba(0, 0, 0, 0.11);
 }
 
 .page img {
@@ -81,9 +82,9 @@ body {
 
 .side-alt img {
   position: relative;
-  top: 5%;
-  left: 65%;
-  width: 300%;
+  top: 0%;
+  left: 55%;
+  width: 230%;
   height: auto;
   padding: 0;
   margin: 0;
@@ -178,4 +179,8 @@ h1, h2, h3, h4{
   left: 5%;
   width: 17%;
   height: auto;
+}
+
+#angst-gif2 img{
+  cursor: pointer;
 }

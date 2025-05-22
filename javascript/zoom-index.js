@@ -8,7 +8,7 @@
       document.querySelectorAll('.bog-lukket p').forEach(p => p.style.display = 'none');
         bogImg.classList.add('zooming');
         setTimeout(function() {
-          window.location.href = 'kapiter.html';
+          window.location.href = 'kapitler.html';
         }, 1200); 
       });
     }
