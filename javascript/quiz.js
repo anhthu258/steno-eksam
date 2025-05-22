@@ -42,7 +42,7 @@ function showIntro() {
 
   // Sæt tekst og billede i intro-boksen
   const questionDiv = document.getElementById('question');
-  questionDiv.innerHTML = `Test din viden om angst her <img src="/img/hvid-pil.png" alt="Start" style="height:1em;vertical-align:middle;margin-left:1rem;">`;
+  questionDiv.innerHTML = `Test din viden om angst her <img src="/img/hvid-pil.webp" alt="Start" style="height:1em;vertical-align:middle;margin-left:1rem;">`;
   questionDiv.classList.add('intro-btn');
 
 
@@ -153,7 +153,7 @@ document.getElementById('nextBtn').onclick = () => {
 
     // Tilføj billede på slutskærm
     const finalImg = document.createElement('img');
-    finalImg.src = '/img/sidder-ned.png';
+    finalImg.src = '/img/sidder-ned.webp';
     finalImg.alt = 'Sidder ned';
     finalImg.className = 'final-img';
     document.body.appendChild(finalImg);

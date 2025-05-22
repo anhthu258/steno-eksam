@@ -137,7 +137,7 @@ body {
 }
 
 .body-final-bg {
-  background-image: url('/img/three-white-corners.png');
+  background-image: url('/img/three-white-corners.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -153,7 +153,7 @@ body {
 }
 
 .intro-bg {
-  background-image: url('/img/white-corners.png');
+  background-image: url('/img/white-corners.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
