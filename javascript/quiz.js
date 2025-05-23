@@ -33,20 +33,19 @@ const quiz = [
 let current = 0;
 let correct = 0;
 
-// Viser intro-siden med start-knap og "tilbage til start"
+// Viser intro-siden med start-knap
 function showIntro() {
+  document.getElementById('home-button').style.display = 'none';
   document.body.classList.add('intro-bg'); // Tilføj baggrundsbillede til intro
   document.getElementById('svarCounter').style.display = 'none'; // Skjul svar-tæller
   document.getElementById('spmCounter').style.display = 'none';  // Skjul spørgsmål-tæller
   document.getElementById('nextBtn').style.display = 'none';     // Skjul næste-knap
 
-  // Sæt tekst og billede i intro-boksen
+  // Sæt tekst og pil i intro knappen
   const questionDiv = document.getElementById('question');
-  questionDiv.innerHTML = `Test din viden om angst her <img src="/img/hvid-pil.webp" alt="Start" style="height:1em;vertical-align:middle;margin-left:1rem;">`;
-  questionDiv.classList.add('intro-btn');
+  questionDiv.innerHTML = `Test din viden om angst her <img src="/img/hvid-pil.png" alt="Start" style="height:1em;vertical-align:middle;margin-left:1rem;">`;
 
-
-  // Tilføj "Tilbage til start"-link under boksen
+  // Tilføj "Tilbage til start"-link under intro knappen
   const restartLink = document.createElement('a');
   restartLink.href = 'index.html';
   restartLink.textContent = 'Tilbage til start';
@@ -56,21 +55,22 @@ function showIntro() {
   // Når man klikker på boksen, starter quizzen
   questionDiv.onclick = () => {
     document.body.classList.remove('intro-bg'); // Fjerner de hvide streger fra hjørnerne på intro siden
-    questionDiv.onclick = null;
+    questionDiv.onclick = null; // deaktivere spørsmålsknappen så man ikke kan klikke på den efter introen
     questionDiv.style.cursor = "";
     questionDiv.classList.remove('intro-btn');
     showQuestion();
-    document.getElementById('svarCounter').style.display = '';
-    document.getElementById('spmCounter').style.display = '';
   };
 }
 
 // Viser det aktuelle spørgsmål og svarmuligheder
 function showQuestion() {
-  document.getElementById('questionNumber').textContent = current + 1;
-  document.getElementById('correctCount').textContent = correct;
-  document.getElementById('result').textContent = '';
-  document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('svarCounter').style.display = ''; // Vis svar-tæller
+  document.getElementById('spmCounter').style.display = ''; // Vis spørgsmål-tæller
+  document.getElementById('home-button').style.display = ''; // Vis "Tilbage til start"-knap
+  document.getElementById('questionNumber').textContent = current + 1; // Opdater spørgsmålstæller
+  document.getElementById('correctCount').textContent = correct; // Opdater korrekt tæller
+  document.getElementById('result').textContent = ''; // Nulstil resultat
+  document.getElementById('nextBtn').style.display = 'none'; // Skjul næste-knap
 
   const q = quiz[current];
   const questionDiv = document.getElementById('question');
@@ -119,13 +119,12 @@ document.getElementById('nextBtn').onclick = () => {
   if (current < quiz.length) {
     document.getElementById('svarCounter').style.display = '';
     document.getElementById('spmCounter').style.display = '';
-    const resultLine = document.getElementById('finalResultLine');
-    if (resultLine) resultLine.remove();
     showQuestion();
   } else {
     // Quiz er slut, vis resultat og afslutningsside
     document.getElementById('svarCounter').style.display = 'none';
     document.getElementById('spmCounter').style.display = 'none';
+    document.getElementById('home-button').style.display = 'none';
 
     const finalResult = document.createElement('div');
     finalResult.id = 'finalResultLine';
@@ -136,6 +135,7 @@ document.getElementById('nextBtn').onclick = () => {
 
     document.body.classList.add('body-final-bg');
 
+    // viser spørsmålskassen med en lille tekst
     const questionElem = document.getElementById('question');
     questionElem.textContent = 'Ligesom du lige oplevede i videoen, kan nogle angstanfald også medføre ringen for ørerne, hvilket kan gøre det vanskeligt at høre og opfatte sine omgivelser. Det kan derfor være udfordrende at modtage og forstå forskellige informationer.';
     questionElem.style.height = '200px';
