@@ -168,3 +168,8 @@ body {
     border: none;
     cursor: pointer;
 }
+
+#home-button img {
+    width: 5vw;
+    height: auto;
+}
