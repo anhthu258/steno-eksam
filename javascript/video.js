@@ -45,11 +45,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('mousemove', showControls);
     document.addEventListener('touchstart', showControls);
-
-    // Fjerner kontrollene efter 2 sekunder
-    hideTimeout = setTimeout(() => {
-        controls.classList.add('hide');
-    }, 2000);
 });
 
 function showPage() {
